@@ -62,9 +62,9 @@ public class SellerDaoJDBC implements SellerDao {
         PreparedStatement st = null;
         try {
             st = conn.prepareStatement(
-                    "UPDATE seller " +
-                    "SET Name = ?, Email = ?, BirthDate = ?, BaseSalary = ?, DepartmentId = ? " +
-                    "WHERE Id = ?"
+                    "UPDATE seller "
+                    + "SET Name = ?, Email = ?, BirthDate = ?, BaseSalary = ?, DepartmentId = ? "
+                    + "WHERE Id = ?"
             );
             st.setString(1, obj.getName());
             st.setString(2, obj.getEmail());
@@ -152,9 +152,9 @@ public class SellerDaoJDBC implements SellerDao {
         try {
             st = conn.prepareStatement(
                     "SELECT seller.*,department.Name as DepName "
-                            + "FROM seller INNER JOIN department "
-                            + "ON seller.DepartmentId = department.Id "
-                            + "ORDER BY Name"
+                    + "FROM seller INNER JOIN department "
+                    + "ON seller.DepartmentId = department.Id "
+                    + "ORDER BY Name"
             );
             rs = st.executeQuery();
 
